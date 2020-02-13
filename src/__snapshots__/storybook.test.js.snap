@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Button Emoji 1`] = `
+<section
+  class="storybook-snapshot-container"
+>
+  <button
+    class="button"
+  >
+    😀 😎 👍 💯
+  </button>
+</section>
+`;
+
+exports[`Storyshots Button Text 1`] = `
+<section
+  class="storybook-snapshot-container"
+>
+  <button
+    class="button"
+  >
+    Hello Button
+  </button>
+</section>
+`;
+
+exports[`Storyshots Footer Desktop 1`] = `
+<section
+  class="storybook-snapshot-container"
+>
+  <footer>
+    
+    © 2020
+  </footer>
+</section>
+`;
+
+exports[`Storyshots Footer Mobile 1`] = `
+<section
+  class="storybook-snapshot-container"
+>
+  <footer>
+    MOBILE TEXT
+    
+    © 
+    2020
+  </footer>
+</section>
+`;
