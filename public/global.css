@@ -1,0 +1,30 @@
+:root {
+    /* Color */
+    --color-black: rgb(0, 0, 0);
+    --color-white: rgb(255, 255, 255);
+    --color-dark-grey: rgb(40, 40, 40);
+    --color-beige: rgb(199, 193, 177);
+
+    --color-text: var(--color-black);
+    --color-background: var(--color-white);
+
+    /* Font */
+    --fontweight-regular: 400;
+    --fontweight-bold: 600;
+    --fontweight-black: 900;
+}
+
+[theme="positive"] {
+    --color-text: var(--color-black);
+    --color-background: var(--color-white);
+}
+
+[theme="neutral"] {
+    --color-text: var(--color-black);
+    --color-background: var(--color-beige);
+}
+
+[theme="negative"] {
+    --color-text: var(--color-white);
+    --color-background: var(--color-dark-grey);
+}
