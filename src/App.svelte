@@ -2,8 +2,6 @@
 	import router from 'page';
 	import routes from './routes';
 
-	import Footer from './components/Footer.svelte';
-
 	const user = {
 		ipAddress: '0.0.0.0',
 		isAuthenticated: false
@@ -36,4 +34,3 @@
 <main>
 	<svelte:component this={page} params={params} />
 </main>
-<Footer></Footer>

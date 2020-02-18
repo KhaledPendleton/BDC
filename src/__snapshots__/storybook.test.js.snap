@@ -1,26 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Button Emoji 1`] = `
+exports[`Storyshots BDCButton Normal 1`] = `
 <section
   class="storybook-snapshot-container"
 >
-  <button
-    class="button"
-  >
-    😀 😎 👍 💯
+  <button>
+    Default Text
   </button>
 </section>
 `;
 
-exports[`Storyshots Button Text 1`] = `
+exports[`Storyshots BDCCopyright Desktop 1`] = `
 <section
   class="storybook-snapshot-container"
 >
-  <button
-    class="button"
-  >
-    Hello Button
-  </button>
+  <span>
+    © 
+    2020
+     
+    <span
+      class="small"
+    >
+      BDC
+    </span>
+     
+    <span
+      class="large"
+    >
+      Binghamton Design Collective
+    </span>
+  </span>
+</section>
+`;
+
+exports[`Storyshots BDCCopyright Normal 1`] = `
+<section
+  class="storybook-snapshot-container"
+>
+  <span>
+    © 
+    2020
+     
+    <span
+      class="small"
+    >
+      BDC
+    </span>
+     
+    <span
+      class="large"
+    >
+      Binghamton Design Collective
+    </span>
+  </span>
 </section>
 `;
 
@@ -29,21 +61,23 @@ exports[`Storyshots Footer Desktop 1`] = `
   class="storybook-snapshot-container"
 >
   <footer>
-    
-    © 2020
-  </footer>
-</section>
-`;
-
-exports[`Storyshots Footer Mobile 1`] = `
-<section
-  class="storybook-snapshot-container"
->
-  <footer>
-    MOBILE TEXT
-    
-    © 
-    2020
+    <section>
+      <button>
+        Positive
+      </button>
+       
+      <button>
+        Neutral
+      </button>
+       
+      <button>
+        Negative
+      </button>
+    </section>
+     
+    <span>
+      © 2020 Binghamton Design Collective
+    </span>
   </footer>
 </section>
 `;
