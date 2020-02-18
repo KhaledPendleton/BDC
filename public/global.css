@@ -14,17 +14,22 @@
     --fontweight-black: 900;
 }
 
-[theme="positive"] {
+[data-theme="positive"] {
     --color-text: var(--color-black);
     --color-background: var(--color-white);
 }
 
-[theme="neutral"] {
+[data-theme="neutral"] {
     --color-text: var(--color-black);
     --color-background: var(--color-beige);
 }
 
-[theme="negative"] {
+[data-theme="negative"] {
     --color-text: var(--color-white);
     --color-background: var(--color-dark-grey);
+}
+
+body {
+    color: var(--color-text);
+    background-color: var(--color-background);
 }
