@@ -1,2 +1,2 @@
-import '../public/variables.css';
 import '../public/reset.css';
+import '../public/global.css';
