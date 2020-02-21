@@ -2,4 +2,6 @@
 
 </script>
 
-<p>Home page here!</p>
+<main class="main-content wrapper">
+    <p>Home page here!</p>
+</main>

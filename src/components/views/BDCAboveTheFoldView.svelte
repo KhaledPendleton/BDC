@@ -1,22 +1,25 @@
 <script context="module">
-    const ComponentEvents = {};
-    ComponentEvents.CLOSE = 'close';
+    export const key = { name: 'bdc-atf' };
 </script>
 
 <script>
-    import { createEventDispatcher } from 'svelte';
+    import { getContext } from 'svelte';
     import { leftviewAlertable } from '../../actions/leftview-alertable.js';
+    export let isOpen;
 
-    const dispatch = createEventDispatcher();
+    const { closeAtf } = getContext(key);
 
     function handleLeftview(event) {
-        dispatch(ComponentEvents.CLOSE, {});
+        console.log('ATF has left the view.');
+        closeAtf();
     }
 </script>
 
-<div
-    use:leftviewAlertable
-    on:leftview={handleLeftview}
->
-    <slot></slot>
-</div>
+{#if isOpen}
+    <div
+        use:leftviewAlertable
+        on:leftview={handleLeftview}
+    >
+        <slot></slot>
+    </div>
+{/if}

@@ -1,7 +1,8 @@
 <script>
 	import router from 'page';
-	
-	import BDCAboveTheFoldView from './components/views/BDCAboveTheFoldView.svelte';
+	import { setContext } from 'svelte';
+
+	import BDCAboveTheFoldView, { key } from './components/views/BDCAboveTheFoldView.svelte';
 	import BDCFooterView from './components/views/BDCFooterView.svelte';
 	import TestATF from './components/atfs/TestATF.svelte';
 	import routes from './pages/routes';
@@ -13,7 +14,25 @@
 
 	let page;
 	let params;
-	let atfOpen = true;
+	let atfIsOpen = true;
+
+    function scrollToTop() {
+		window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+	}
+
+	function openAtf() {
+		atfIsOpen = true;
+		scrollToTop();
+	}
+
+	function closeAtf() {
+		atfIsOpen = false;
+		scrollToTop();
+	}
+
+	function handleAtfShouldclose(event) {
+		closeAtf();
+	}
 
 	routes.forEach(route => {
 		router(route.path,
@@ -33,47 +52,35 @@
 	});
 
 	router.start();
-
-	function scrollToTop() {
-		window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-	}
-
-	function handleAtfClose(event) {
-		atfOpen = false;
-		scrollToTop();
-	}
-
-	function handleAtfOpenButtonClick(event) {
-		atfOpen = true;
-		scrollToTop();
-	}
+	setContext(key, {openAtf, closeAtf});
 </script>
 
 <style>
 	#app {
-		/* 1. Around 1200px at 16px font */
-        width: 95%;
-        max-width: 75rem; /* 1. */
-        margin: auto;
 		height: 100vh;
 		display: flex;
   		flex-direction: column;
 	}
 
-	main {
+	:global(.main-content) {
 		flex: 1 0 auto;
+	}
+
+	:global(.wrapper) {
+		/* 1. Around 1200px at 16px font */
+        width: 95%;
+        max-width: 75rem; /* 1. */
+        margin: auto;
 	}
 </style>
 
-{#if atfOpen}
-	<BDCAboveTheFoldView on:close={handleAtfClose}>
-		<TestATF on:shouldclose={handleAtfClose} />
+<section>
+	<BDCAboveTheFoldView isOpen={atfIsOpen}>
+		<TestATF on:shouldclose={handleAtfShouldclose} />
 	</BDCAboveTheFoldView>
-{/if}
+</section>
 
-<div id="app">
-	<main>
-		<svelte:component this={page} params={params} />
-	</main>
+<section id="app">
+	<svelte:component this={page} params={params} />
 	<BDCFooterView />
-</div>
+</section>
