@@ -1,4 +1,4 @@
-import Home from './pages/Home.svelte';
+import Home from './Home.svelte';
 
 const routes = [
     { path: '/', component: Home }

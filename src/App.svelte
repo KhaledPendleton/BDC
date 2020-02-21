@@ -1,12 +1,10 @@
 <script>
 	import router from 'page';
 	
-	import routes from './routes';
-	import BDCFooterView from './components/views/BDCFooterView.svelte';
 	import BDCAboveTheFoldView from './components/views/BDCAboveTheFoldView.svelte';
+	import BDCFooterView from './components/views/BDCFooterView.svelte';
 	import TestATF from './components/atfs/TestATF.svelte';
-
-	let atfOpen = true;
+	import routes from './pages/routes';
 
 	const user = {
 		ipAddress: '0.0.0.0',
@@ -15,6 +13,7 @@
 
 	let page;
 	let params;
+	let atfOpen = true;
 
 	routes.forEach(route => {
 		router(route.path,
