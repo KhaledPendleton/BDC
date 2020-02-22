@@ -1,19 +1,22 @@
 <script>
-	import router from 'page';
+	// import router from 'page';
 	import { setContext } from 'svelte';
 
 	import BDCAboveTheFoldView, { key } from './components/views/BDCAboveTheFoldView.svelte';
 	import BDCFooterView from './components/views/BDCFooterView.svelte';
 	import TestATF from './components/atfs/TestATF.svelte';
-	import routes from './pages/routes';
 
-	const user = {
-		ipAddress: '0.0.0.0',
-		isAuthenticated: false
-	};
+	import RouteManager from './managers/RouteManager';
+	import ThemeManager from './managers/ThemeManager';
 
-	let page;
-	let params;
+	import { routeInfo } from './stores';
+	import constants from './constants';
+	import routes from './routes';
+
+	// ***********************************************************
+	// ABOVE THE FOLD ********************************************
+	// ***********************************************************
+
 	let atfIsOpen = false;
 
     function scrollToTop() {
@@ -34,25 +37,28 @@
 		closeAtf();
 	}
 
-	routes.forEach(route => {
-		router(route.path,
-			(context, next) => {
-				params = context.params;
-				next();
-			},
-			() => {
-				if (route.requiresAuth && !user.isAuthenticated) {
-					router.redirect('/login');
-					return;
-				}
-
-				page = route.component
-			}
-		);
-	});
-
-	router.start();
 	setContext(key, {openAtf, closeAtf});
+
+
+	// ***********************************************************
+	// ROUTER ****************************************************
+	// ***********************************************************
+
+	const routeManager = new RouteManager(routes);
+	routeManager.init();
+
+	$: page = $routeInfo.page;
+	$: params = $routeInfo.params;
+
+	// ***********************************************************
+	// THEME MANAGER *********************************************
+	// ***********************************************************
+
+	const themeManager = new ThemeManager(document.body);
+	const themes = constants.THEME_NAMES.map(name => {
+        const updateTheme = themeManager.makeUpdateTheme(name);
+		return {name, updateTheme};
+	});
 </script>
 
 <style>
@@ -82,5 +88,9 @@
 
 <section id="app">
 	<svelte:component this={page} params={params} />
-	<BDCFooterView />
+	<BDCFooterView
+		{themes}
+		email={constants.COMPANY_EMAIL}
+		socialMediaAccounts={constants.SOCIAL_MEDIA_ACCOUNTS}
+	/>
 </section>
