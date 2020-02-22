@@ -1,5 +1,4 @@
 <script>
-	// import router from 'page';
 	import { setContext } from 'svelte';
 
 	import BDCAboveTheFoldView, { key } from './components/views/BDCAboveTheFoldView.svelte';
