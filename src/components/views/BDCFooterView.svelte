@@ -11,7 +11,8 @@
 
 <style>
     footer {
-        padding-bottom: 1rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
         display: grid;
         grid-template-rows: auto;
         row-gap: 1rem;
