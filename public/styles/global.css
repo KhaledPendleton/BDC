@@ -1,3 +1,10 @@
+@font-face {
+    src: url(../fonts/univers-roman.otf);
+    font-family: "Univers Roman";
+    font-style: normal;
+    font-weight: 400;
+}
+
 :root {
     /* Color */
     --color-black: rgb(0, 0, 0);
@@ -5,7 +12,8 @@
     --color-dark-grey: rgb(40, 40, 40);
     --color-beige: rgb(199, 193, 177);
 
-    --color-text: var(--color-black);
+    --color-primary: var(--color-black);
+    --color-text: var(--color-primary);
     --color-background: var(--color-white);
 
     /* Font */
@@ -15,21 +23,25 @@
 }
 
 [data-theme="positive"] {
-    --color-text: var(--color-black);
+    --color-primary: var(--color-black);
+    --color-text: var(--color-primary);
     --color-background: var(--color-white);
 }
 
 [data-theme="neutral"] {
-    --color-text: var(--color-black);
+    --color-primary: var(--color-black);
+    --color-text: var(--color-primary);
     --color-background: var(--color-beige);
 }
 
 [data-theme="negative"] {
-    --color-text: var(--color-white);
+    --color-primary: var(--color-white);
+    --color-text: var(--color-primary);
     --color-background: var(--color-dark-grey);
 }
 
 body {
     color: var(--color-text);
     background-color: var(--color-background);
+    font-family: "Univers Roman";
 }
